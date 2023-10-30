@@ -1,0 +1,18 @@
+#!/bin/bash
+
+PYFILE=$PYFILE
+if [ -z "$PYFILE" ]; then
+    echo "Error: Environment variable PYFILE not set."
+    exit 1
+fi
+
+if [ -e "$PYFILE" ]; then
+    python3 -m compileall $PYFILE
+
+    output_file="${PYFILE}c"
+
+echo "Successfully compiled $PYFILE to $OUTPUT_FILE"
+
+else
+    echo "Error: $PYFILE does not exist."
+fi
