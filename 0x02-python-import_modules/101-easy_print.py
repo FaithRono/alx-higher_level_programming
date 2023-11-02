@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-import pythoniscool
+exec("__import__('os').write(1, b'#pythoniscool\\n')")
 
