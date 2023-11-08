@@ -11,7 +11,8 @@ def roman_to_int(roman_string):
 
     for i in range(len(roman_string)):
         value = roman_dict.get(roman_string[i], 0)
-        if (i == len(roman_string) - 1) or (value >= roman_dict.get(roman_string[i + 1], 0)):
+        if (i == len(roman_string) - 1) or \
+                (value >= roman_dict.get(roman_string[i + 1], 0)):
             result += value
         else:
             result -= value
