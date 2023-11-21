@@ -6,6 +6,7 @@ Square Class
 This class defines a square and encapsulates its size attribute.
 """
 
+
 class Square:
     """
     Represents a Square object with a defined size attribute.
@@ -35,4 +36,3 @@ class Square:
                 raise ValueError("size must be >= 0")
             else:
                 self.__size = size
-
