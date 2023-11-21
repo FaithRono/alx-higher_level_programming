@@ -1,23 +1,30 @@
 #!/usr/bin/python3
 
+"""
+Square Class
+
+This class defines a square and encapsulates its size attribute.
+"""
+
+
 class Square:
     """
-    Square class represents a square.
+    Represents a Square object with a defined size attribute.
 
     Attributes:
-        __size (int): Size of a side of the square.
+        __size (int): Represents the size of a side of the square.
     """
 
     def __init__(self, size=0):
         """
-        Initializes a square.
+        Initializes a Square object with a specified size.
 
         Args:
-            size (int): Size of a side of the square. Default is 0.
+            size (int): The size of a side of the square.
 
         Raises:
-            TypeError: If size is not an integer.
-            ValueError: If size is less than 0.
+            TypeError: If the provided size is not an integer.
+            ValueError: If the provided size is less than 0.
 
         Returns:
             None
