@@ -12,7 +12,7 @@ class Node:
 
         Args:
             data: The data to be stored in the node.
-            next_node: Reference to the next node in the linked list (default is None).
+            next_node: Reference to the next node in the linked list
         """
         self.data = data
         self.next_node = next_node
@@ -81,7 +81,7 @@ class SinglyLinkedList:
 
     def sorted_insert(self, value):
         """
-        Insert a new node with the given value into the sorted position in the linked list.
+        Insert a new node with the given value into the sorted position
 
         Args:
             value: The value to be inserted.
@@ -95,13 +95,14 @@ class SinglyLinkedList:
             # If the list is empty, make the new node the head
             self.head = new_node
         elif value < self.head.data:
-            # If the new node should be inserted at the beginning, update the head
+            # If the new node should be inserted at the beginning
             new_node.next_node = self.head
             self.head = new_node
         else:
-            # Traverse the list to find the correct position to insert the new node
+            # Traverse the list to find the correct position to insert
             current = self.head
-            while current.next_node is not None and current.next_node.data < value:
+            while current.next_node is not None and
+            current.next_node.data < value:
                 current = current.next_node
 
             # Insert the new node between the current node and the next node
@@ -113,7 +114,7 @@ class SinglyLinkedList:
         Return a string representation of the linked list.
 
         Returns:
-            A string representing the linked list, with each node's data on a separate line.
+            A string representing the linked list, with each node's data
         """
         node = self.head
         nodes = []
