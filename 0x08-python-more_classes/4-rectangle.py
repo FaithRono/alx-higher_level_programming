@@ -108,15 +108,10 @@ class Rectangle:
             [rect.append('#') for j in range(self.__width)]
             if i != self.__height - 1:
                 rect.append("\n")
-            return ("".join(rect))
+        return ("".join(rect))
 
     def __repr__(self):
-        """
-        Return the string representation of the rectangle for reproduction.
-
-        Returns:
-            str: The string representation of the rectangle.
-        """
+        """Return the string representation of the Rectangle."""
         rect = "Rectangle(" + str(self.__width)
         rect += ", " + str(self.__height) + ")"
         return (rect)
