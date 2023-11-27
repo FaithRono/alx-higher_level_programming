@@ -3,6 +3,7 @@
 
 """Defines class Rectaangle"""
 
+
 class Rectangle:
     """
     Represents a rectangle.
