@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""Defines class Rectangle"""
+"""Defines a class Rectangle"""
 
 
 class Rectangle:
@@ -106,17 +106,18 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
 
-        rect_str = ""
+        rect = []
         for _ in range(self.__height):
-            rect_str += "#" * self.__width + "\n"
-
-        return rect_str.rstrip("\n")
+            rect.append('#' * self.__width)
+            rect.append("\n")
+        return "".join(rect).rstrip("\n")
 
     def __repr__(self):
         """
         Get a string representation of the rectangle for reproduction.
 
         Returns:
-            str: A string that represents the rectangle in a format
+            str: A string that represents the rectangle in a format that
+            can be used to reproduce the object.
         """
         return "Rectangle({}, {})".format(self.__width, self.__height)
