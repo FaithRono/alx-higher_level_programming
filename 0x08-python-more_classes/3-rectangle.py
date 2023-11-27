@@ -108,19 +108,11 @@ class Rectangle:
             If width or height is equal to 0, returns an empty string.
         """
         if self.__width == 0 or self.__height == 0:
-            return ""
-        rect_str = ""
-        for _ in range(self.__height - 1):
-            rect_str += "#" * self.__width + "\n"
-        rect_str += "#" * self.__width
-        return rect_str
+            return ("")
 
-    def __repr__(self):
-        """
-        Returns a string representation of the rectangle for reproduction.
-
-        Returns:
-            A string that represents the rectangle in a format that can be used
-            to reproduce the object.
-        """
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        rect_str = []
+        for i in range(self.__height):
+            [rect_str.append('#') for j in range(self.__width)]
+            if i != self.__height - 1:
+                rect_str.append("\n")
+                return ("".join(rect_str))
