@@ -1,1 +1,1 @@
-python is intresting
+python is an interesting language to learn
