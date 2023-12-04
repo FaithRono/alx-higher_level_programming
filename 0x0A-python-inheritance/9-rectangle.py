@@ -52,4 +52,3 @@ class Rectangle(BaseGeometry):
             str: A string describing the rectangle.
         """
         return self.__str__()
-
