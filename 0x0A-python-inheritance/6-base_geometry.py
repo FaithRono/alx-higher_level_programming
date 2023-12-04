@@ -6,6 +6,7 @@ Module: 6-base_geometry
 Contains the BaseGeometry class with an area() method.
 """
 
+
 class BaseGeometry:
     """
     A class representing basic geometry.
