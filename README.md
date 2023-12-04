@@ -1,1 +1,1 @@
-0x05. Python - Exceptions
+python is an interesting language to learn
