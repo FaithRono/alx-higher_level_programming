@@ -4,8 +4,6 @@ Module 8-rectangle
 Defines the Rectangle class that inherits from BaseGeometry
 """
 
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
 
 class BaseGeometry:
     """
@@ -38,10 +36,11 @@ class BaseGeometry:
         if value <= 0:
             raise ValueError("{:s} must be greater than 0".format(name))
 
-    class Rectangle(BaseGeometry):
-        """
-        A class representing a rectangle.
-        """
+
+class Rectangle(BaseGeometry):
+    """
+    A class representing a rectangle.
+    """
     def __init__(self, width, height):
         """
         Initializes a Rectangle instance.
@@ -54,3 +53,4 @@ class BaseGeometry:
         self.integer_validator("height", height)
         self.__width = width
         self.__height = height
+
