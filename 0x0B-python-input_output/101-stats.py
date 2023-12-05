@@ -1,46 +1,38 @@
 #!/usr/bin/python3
-"""Reads from standard input and computes metrics.
-
-After every ten lines or the input of a keyboard interruption (CTRL + C),
-prints the following statistics:
-    - Total file size up to that point.
-    - Count of read status codes up to that point.
-"""
-
-
-
 import sys
 
-status_codes = {'200': 0, '301': 0, '400': 0, '401': 0,
-                '403': 0, '404': 0, '405': 0, '500': 0}
+def print_metrics(total_size, status_codes):
+    """
+    Prints the computed metrics.
+
+    Args:
+        total_size (int): The total file size.
+        status_codes (dict): A dictionary containing the count of each status code.
+    """
+    print("File size: {}".format(total_size))
+    for code in sorted(status_codes.keys()):
+        print("{}: {}".format(code, status_codes[code]))
 
 total_size = 0
-count = 0
+status_codes = {}
 
 try:
-    for i, line in enumerate(sys.stdin, 1):
-        parts = line.split()
-        if len(parts) > 2:
-            try:
-                code = parts[-2]
-                file_size = int(parts[-1])
-                if code in status_codes:
-                    status_codes[code] += 1
-                total_size += file_size
-                count += 1
-            except ValueError:
-                pass
+    line_count = 0
+    for line in sys.stdin:
+        try:
+            ip, _, _, status_code, file_size = line.strip().split(' ')[0], line.strip().split(' ')[-2], line.strip().split(' ')[-1]
+            total_size += int(file_size)
+            if status_code not in status_codes:
+                status_codes[status_code] = 1
+            else:
+                status_codes[status_code] += 1
 
-        if i % 10 == 0:
-            print(f"File size: {total_size}")
-            for key in sorted(status_codes.keys()):
-                if status_codes[key] != 0:
-                    print(f"{key}: {status_codes[key]}")
-            print()
+            line_count += 1
+            if line_count % 10 == 0:
+                print_metrics(total_size, status_codes)
+
+        except (ValueError, IndexError):
+            pass
 
 except KeyboardInterrupt:
-    print(f"File size: {total_size}")
-    for key in sorted(status_codes.keys()):
-        if status_codes[key] != 0:
-            print(f"{key}: {status_codes[key]}")
-
+    print_metrics(total_size, status_codes)
