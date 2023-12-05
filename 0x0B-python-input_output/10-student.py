@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Add all arguments to a Python list and save them to a file."""
-
+"""Defines a Python class-to-JSON function."""
 
 
 class Student:
     """Defines a student with attributes first_name, last_name, and age."""
+
     def __init__(self, first_name, last_name, age):
         """
         Initializes a Student object with a first name, last name, and age.
@@ -23,13 +23,13 @@ class Student:
         Retrieves a dictionary representation of a Student instance.
 
         Args:
-            attrs (list, optional): A list of strings containing attribute names.
+            attrs (list, optional): A list of strings containing attribute name
                 If provided, only the listed attributes will be retrieved.
                 Defaults to None, in which case all attributes are retrieved.
 
         Returns:
             dict: A dictionary representation of the Student instance.
-                Contains the requested attributes based on the 'attrs' argument.
+                Contains the requested attributes based on the 'attrs' argument
 
         Notes:
             If 'attrs' contains attributes not present in the Student instance,
@@ -38,5 +38,5 @@ class Student:
         if attrs is None:
             return self.__dict__
         else:
-            return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
-
+            return {attr: getattr(self, attr) /
+                    for attr in attrs if hasattr(self, attr)}
