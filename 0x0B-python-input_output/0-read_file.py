@@ -15,10 +15,6 @@ def read_file(filename=""):
         You don’t need to manage file permission or file doesn'texist exception
         You are not allowed to import any module.
     """
-    with open(filename, mode='r', encoding='utf-8') as file:
-        print(file.read(), end='')
-
-# Test the function
-
-if __name__ == "__main__":
-    read_file("my_file_0.txt")
+    with open(filename, 'r', encoding="utf-8") as f:
+        read_data = f.read()
+        print(read_data, end='')
