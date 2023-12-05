@@ -1,16 +1,22 @@
 #!/usr/bin/python3
 """
-Module - 11-student
-Contains a class Student with public attributes and methods.
+Module that defines the class Student
 """
 
 
 class Student:
-    """Defines a student by first_name, last_name, and age attributes."""
+    """
+    Class to create student instances
+
+    Attributes:
+        first_name (str): The first name of the student.
+        last_name (str): The last name of the student.
+        age (int): The age of the student.
+    """
 
     def __init__(self, first_name, last_name, age):
         """
-        Initializes a Student object with a first name, last name, and age.
+        Special method to initialize a Student instance.
 
         Args:
             first_name (str): The first name of the student.
@@ -23,31 +29,37 @@ class Student:
 
     def to_json(self, attrs=None):
         """
-        Retrieves a dictionary representation of a Student instance.
+        Method that returns a dictionary representation of the Student instance.
 
         Args:
-            attrs (list, optional): A list of strings containing attribute name
-                If provided, only the listed attributes will be retrieved.
-                Defaults to None, in which case all attributes are retrieved.
+            attrs (list): A list of attribute names to be retrieved.
+                If None, all attributes will be retrieved. Default is None.
 
         Returns:
             dict: A dictionary representation of the Student instance.
-                Contains the requested attributes based on the 'attrs' argument
         """
-        if attrs is None:
-            return self.__dict__
-        else:
-            return {attr: getattr(self, attr) /
-                    for attr in attrs if hasattr(self, attr)}
+        obj = self.__dict__.copy()
+        if isinstance(attrs, list):
+            for item in attrs:
+                if not isinstance(item, str):
+                    return obj
+
+            d_list = {}
+            for iatr in range(len(attrs)):
+                for satr in obj:
+                    if attrs[iatr] == satr:
+                        d_list[satr] = obj[satr]
+            return d_list
+
+        return obj
 
     def reload_from_json(self, json):
         """
-        Replaces all attributes of the Student instance using a dictionary.
+        Replaces all attributes of the Student instance with
+        values from a JSON dictionary.
 
         Args:
-            json (dict): A dictionary representing the attributes
-                The dictionary key represents the public attribute name,
-                and the dictionary value represents the attribute's value.
+            json (dict): A dictionary containing attribute-value pairs.
         """
-        for key, value in json.items():
-            setattr(self, key, value)
+        for atr in json:
+            self.__dict__[atr] = json[atr]
