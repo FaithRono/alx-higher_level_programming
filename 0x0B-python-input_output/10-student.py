@@ -29,7 +29,7 @@ class Student:
 
     def to_json(self, attrs=None):
         """
-        Method that returns a dictionary representation of the Student instance.
+        Method that returns a dictionary representation of the Student instance
 
         Args:
             attrs (list): A list of attribute names to be retrieved.
