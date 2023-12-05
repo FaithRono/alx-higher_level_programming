@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+"""Defines a Pascal's Triangle function."""
+
+
 def pascal_triangle(n):
     """
     Generates Pascal's Triangle with n rows.
