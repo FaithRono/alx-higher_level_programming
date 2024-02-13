@@ -1,16 +1,12 @@
 #!/usr/bin/node
 
-const Square = require('./5-square');
+exports.nbOccurences = function (list, searchElement) {
+  let ocurr = 0;
 
-class SquareWithCharPrint extends Square {
-  charPrint (c) {
-    if (c === undefined) {
-      c = 'X';
-    }
-    for (let i = 0; i < this.height; i++) {
-      console.log(c.repeat(this.width));
+  for (let i = 0; i <= list.length; i++) {
+    if (list[i] === searchElement) {
+      ocurr++;
     }
   }
-}
-
-module.exports = SquareWithCharPrint;
+  return ocurr;
+};
