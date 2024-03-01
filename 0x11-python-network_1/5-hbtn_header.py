@@ -3,11 +3,9 @@
 displays the value of the variable X-Request-Id in the response header
 """
 
-from requests import get
-from sys import argv
+if __name__ == '__main__':
+    from requests import get
+    from sys import argv
 
-if __name__ == "__main__":
-    url = sys.argv[1]
-    response = requests.get(url)
-
-    print(response.headers['X-Request-Id'])
+    res = get(argv[1])
+    print(res.headers.get('X-Request-Id'))
